@@ -1,10 +1,23 @@
 <!doctype html>
 <html>
   <head>
-    <title><%=shopName%></title>
+    <title><%= shopName %></title>
+    <link rel="stylesheet" href="/style.css">
   </head>
   <body>
-    <h1>About the  <%=shopName%> Shop</h1>
-    <p>We sell all sorts of drinks</p>
+    <h1>About the <%= shopName %> Shop</h1>
+    <p>We sell all sorts of drinks.</p>
+
+    <h2>Our Shop Locations</h2>
+    <ul>
+      <% for (let i = 0; i < shops.length; i++) { %>
+        <li>
+          Location: <%= shops[i].location %><br>
+          Manager: <%= shops[i].manager %><br>
+          Address: <%= shops[i].address %>
+        </li>
+      <% } %>
+    </ul>
   </body>
 </html>
+
