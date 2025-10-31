@@ -5,18 +5,18 @@ const router = express.Router();
 var shopData = {
     shopName: "Drinks R Us", productCategories: ["Beer", "Wine", "Soft Drinks", "Hot Drinks"], shops: [
         {
-            location: "Downtown",
-            manager: "Aisha Khan",
-            address: "123 City Center, Main Street"
+            location: "London",
+            manager: "Alisha",
+            address: "123 City Center"
         },
         {
-            location: "Uptown",
-            manager: "James Lee",
-            address: "45 High Street, Uptown"
+            location: "Cambridge",
+            manager: "James",
+            address: "45 High Street"
         },
         {
-            location: "Beachside",
-            manager: "Sophie Patel",
+            location: "Manchester",
+            manager: "Sophie",
             address: "89 Ocean View Road"
         }
     ]
@@ -60,10 +60,11 @@ router.post("/survey_result", (req, res) => {
     let studentStatus = "No";
     if (req.body.student) {
         studentStatus = "Yes";
-    }
+    } //checking if the checkbox has been selected on the form for if they are a student or not 
 
+    //An object is created called surveyData that organises all the submitted form data neatly.
     const surveyData = {
-        first: req.body.first,
+        first: req.body.first, //Each of these fields match the name attribute from the inputs in the survey.ejs
         last: req.body.last,
         email: req.body.email,
         age: req.body.age,
@@ -72,6 +73,8 @@ router.post("/survey_result", (req, res) => {
     };
 
     res.render("survey_result.ejs", { shopName: shopData.shopName, surveyData });
+    //After preparing the surveyData, the route renders the EJS template survey_result.ejs.
+    //It sends two pieces of data to the template:shopName (from the shopData object), surveyData (the form data that was  just collected)
 });
 
 

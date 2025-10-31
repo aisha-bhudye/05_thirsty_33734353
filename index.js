@@ -7,7 +7,7 @@ const path = require('path');
 const app = express()
 const port = 8000
 
-// Serve style.css manually
+// Add style.css
 app.get('/style.css', (req, res) => {
   res.sendFile(path.join(__dirname, 'style.css'));
 });
